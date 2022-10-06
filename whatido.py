@@ -1,6 +1,10 @@
 # whatido.py
 
 
+actions = {
+	"q" : exit
+}
+
 class Log:
 	DEFAULT_LOG = "captains.log"
 
@@ -11,12 +15,10 @@ class Log:
 	def store(self, log_item):
 		print(f"Recording: {log_item}")
 
-
-
 def get_user_msg():
 	msg = input("--> ")
-	if msg == 'q':
-		exit()
+	if msg in actions:
+		actions[msg]()
 	return msg
 	
 if __name__ == '__main__':
